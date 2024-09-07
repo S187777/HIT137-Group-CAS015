@@ -19,8 +19,7 @@ A, Y, D (upper case letters)
 becomes 65, 89, 68 (ASCII decimal values)
 """
 
-def separate_string():
-	string = "56aAww1984sktr235270aYmn145ss785fsq31D0"
+def separate_string(string):
 	if len(string)<16:
 		print("The string is not long enough. Try again.")
 	digit_string = []
@@ -31,13 +30,13 @@ def separate_string():
 		for y in x:
 			if y.isalpha():
 				if y.isupper():
-					letter_string.append(ord(y))
+					letter_string.append(ord(y))		# convert upper-case letters
 				else:
 					letter_string.append(y)
 			elif y.isdigit():
 				z=int(y)
 				if z % 2 == 0:
-					digit_string.append(ord(y))
+					digit_string.append(ord(y))			# convert even numbers
 				else:
 					digit_string.append(y)
 			else:
@@ -45,7 +44,9 @@ def separate_string():
 	print(letter_string)
 	print(digit_string)
 
-separate_string()
+string = "56aAww1984sktr235270aYmn145ss785fsq31D0"
+
+separate_string(string)
 
 """
 OUTPUT:

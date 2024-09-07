@@ -7,10 +7,11 @@ def decrypt(text, key):
     decrypted_text = ""
     for char in text:
         if char.isalpha():
-            shifted = ord(char) - key       #for a value, say 'i', ord('i') = 105 + 13 = 128
-            if shifted < ord('A'):      # if the shifted value is more than.
+            shifted = ord(char) - key       # For a value, say 'i', ord('i') = 105 + 13 = 128
+            # The cryptogram is only capitals, so we can ignore lowercase cases
+            if shifted < ord('A'):      # If the shifted value is less than the lower range (A-Z)
                 shifted -= ord('A') - ord('Z') - 1
-            elif shifted > ord('Z'):
+            elif shifted > ord('Z'):        # If the shifted value is more than the upper range (A-Z)
                 shifted += ord('A') - ord('Z') + 1
             decrypted_text += chr(shifted)      ## add that character to the new string and continue
         else:
@@ -18,6 +19,7 @@ def decrypt(text, key):
     print(decrypted_text)
 
 key = ord("V")-ord("I")
+
 ### A little trial and error, but single letters in a sentence are normally either a or i,
 ###	and two letter words are similar.
 
