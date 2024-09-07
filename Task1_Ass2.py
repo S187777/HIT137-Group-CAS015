@@ -1,8 +1,8 @@
 import os
 import pandas as pd
 
-# Define the folder where the CSV files are stored
-folder_path = 'C:/Users/Liany/Desktop/Ass2_HIT137/Assignment 2'
+# Define the folder where the CSV files are stored # Hi Team, just update below here your folder path
+folder_path = 'C:/Users/  '
 
 # List all CSV files in the folder
 csv_files = [f for f in os.listdir(folder_path) if f.endswith('.csv')]
