@@ -1,3 +1,28 @@
+# This code uses CWD (current working directory) to open a described folder, 
+# 	and then opens and reads each CSV file, ignores any data <10 characters,
+# 	determines if it is Alphabetical, and writes a lower-case of the data into 
+# 	a "csv compiled text" txt file. 
+# 	It also takes every punctuation symbol in "string" and replaces that with a space,
+# 	and writes everything else as a "".
+#	As it finishes each cell, it uses NLP to inspect the cells contents to pick out 
+# 	the words related to the library we use.
+# *** We need to add all the NLP words into a new list[str], and counter the occurences of the words.
+# 	The code then does the same for the next CSV file.
+# After compiling the text file, the code then takes every string, and compiles that into a list[str]
+# 	ignores every string less <3 characters, and counts the occurance of that string in the list,
+# 	and compiles that string and count into a dictionary.
+# The dictionary is then sorted using max to determine the max value(count) and its key(string)
+# 	for the 30 highest values (30 most common strings), and those 30 are added to a new dictionary.
+# The new dictionary is then written into a new CSV file.
+
+## Still to use the ‘Auto Tokenizer’ function in the ‘Transformers’ library, 
+# 	write a ‘function’ to count unique tokens in the text (.txt) and give the ‘Top 30’ words.
+## Still to extract the ‘diseases’, and ‘drugs’ entities in the ‘.txt file’ separately 
+# 	using ‘en_core_sci_sm’/’en_ner_bc5cdr_md’ and biobert. 
+## Still to compare the differences between the two models 
+# 	(Example: Total entities detected by both of them, what’s the difference, 
+# 	 check for most common words, and check the difference.)
+
 import os
 import csv
 #import scispacy
