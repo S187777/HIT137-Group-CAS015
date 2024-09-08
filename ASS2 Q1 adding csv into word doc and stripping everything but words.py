@@ -35,6 +35,10 @@ def add_all_words_to_text():
 	f = open("CSV_compiled.txt",'w')
 	f.write("")
 	f.close()
+	
+	# I thought CWD would be a good choice here because VS Code usually likes to draw most 
+	# 	of its information and save to the same folder by default, so we can just add our CSV files
+	# 	to that folder and then we dont need to go importing file paths.
 
 	Path = os.getcwd()		#get current working directory ==> where is python interpreter accessing from.
 	filelist = os.listdir(Path)		#create string of path directory
@@ -78,7 +82,10 @@ complete_list = word_string.split()
 
 print(len(complete_list))
 
+#temporarilly blanked out to test the above.
 """
+
+# New dictionary to add key/value of (word/word count).
 count_dict = {}
 
 for x in complete_list:
@@ -88,6 +95,8 @@ for x in complete_list:
 		count = complete_list.count(x)
 		count_dict[x] = count
 
+		
+# New dictionary to add the 30 highest (word/word count) as they loop.
 max_dict = {}
 tally = 0
 
@@ -97,6 +106,7 @@ while tally < 30:
 	del count_dict[max_value_key]
 	tally += 1
 
+# Write the 30 highest dictionary to a CSV file.
 with open('outputfile.csv','w') as f:
     w = csv.writer(f)
     w.writerows(max_dict.items())
