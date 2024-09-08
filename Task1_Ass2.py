@@ -1,3 +1,9 @@
+# This code looks for all csv files in a described folder,
+# Then opens and reads each CSV file, writes the data in either "text" or "short-text" columns
+#  from that file into an "extracted texts" txt file, and then does the same for the next CSV file. 
+# And then returns an output indicating an exception or completeness.
+
+
 import os
 import pandas as pd
 
