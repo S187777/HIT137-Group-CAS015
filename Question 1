@@ -1,0 +1,14 @@
+Hi team, I was think for question 1 we step up the code like this
+
+Create an empty list to store the text 
+
+Loop through all the files in the specified folder:
+
+Use a loop to go through all files in the folder 
+
+Use an if condition to check if the file ends with something
+
+
+Append the text from the CSV file into the created empty list.
+
+Create another list to keep track of the files that have been processed.
