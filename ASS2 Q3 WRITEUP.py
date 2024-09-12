@@ -18,7 +18,7 @@ while counter < 5:
     
     else:
         counter += 2
-print(total)   # ISSUE FOUND was not able to print the key
+print(total)   # Issue Found!! was not able to print the key
 
 key = total     # The total value is the shift key for the next part. #Make key = total
 ## key = 13
