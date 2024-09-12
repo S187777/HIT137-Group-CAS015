@@ -200,6 +200,7 @@ print(my_set)
 global_variable = 100
 my_dict = {'ke11': 'value1', 'ke12': 'value2', 'ke13': 'value3'}
 numbers = 0
+
 def process_numbers():
     global global_variable
     # Why assign this global variable here?
@@ -249,3 +250,5 @@ if 5 not in my_dict:
 print(global_variable)
 print(my_dict)
 print(my_set)
+
+#You mnade a change
