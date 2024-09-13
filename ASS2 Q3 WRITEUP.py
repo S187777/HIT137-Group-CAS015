@@ -215,13 +215,15 @@ def process_numbers():
 
 
 ########################################################################        This Is Where We Need To Check From
-my_set = {1, 2, 3, 4, 5, 5, 4, 3, 2, 1}
+my_set = {1, 2, 3, 4, 5, 5, 4, 3, 2, 1} #sets can't have double up
 ""
 result = process_numbers(numbers=my_set)
 ""
 ## The function process_numbers() does not expect an argument (numbers=my_set)
 ### A set will not return two items with the same value.
-## ??? Do we need to replace the numbers list with the my_set ???
+## ??? Do we need to replace the numbers list with the my_set ??? 
+
+# to remove double ups we could use this code my_set = list(set(my_set))
 
 def modify_dict():
     local_variable = 10
@@ -251,4 +253,4 @@ print(global_variable)
 print(my_dict)
 print(my_set)
 
-#You mnade a change
+#You made a change
