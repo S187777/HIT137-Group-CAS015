@@ -58,7 +58,7 @@ for file in folder:
             processed_files.append(file)
 
 
-## TODO: Add full logging implementation here
+## TODO: Add full logging implementation below here> back later.
 
 
 ## Just a note here I've mentioned about doing logging but haven’t shown how.>>>>Back here later tp finish it
