@@ -18,9 +18,9 @@ while counter < 5:
     
     else:
         counter += 2
-print(total)
+print(total)   # Issue Found!! was not able to print the key
 
-key = total     # The total value is the shift key for the next part.
+key = total     # The total value is the shift key for the next part. #Make key = total
 ## key = 13
 
 #   Second Step:
@@ -200,6 +200,7 @@ print(my_set)
 global_variable = 100
 my_dict = {'ke11': 'value1', 'ke12': 'value2', 'ke13': 'value3'}
 numbers = 0
+
 def process_numbers():
     global global_variable
     # Why assign this global variable here?
@@ -214,13 +215,15 @@ def process_numbers():
 
 
 ########################################################################        This Is Where We Need To Check From
-my_set = {1, 2, 3, 4, 5, 5, 4, 3, 2, 1}
+my_set = {1, 2, 3, 4, 5, 5, 4, 3, 2, 1} #sets can't have double up
 ""
 result = process_numbers(numbers=my_set)
 ""
 ## The function process_numbers() does not expect an argument (numbers=my_set)
 ### A set will not return two items with the same value.
-## ??? Do we need to replace the numbers list with the my_set ???
+## ??? Do we need to replace the numbers list with the my_set ??? 
+
+# to remove double ups we could use this code my_set = list(set(my_set))
 
 def modify_dict():
     local_variable = 10
@@ -249,3 +252,5 @@ if 5 not in my_dict:
 print(global_variable)
 print(my_dict)
 print(my_set)
+
+#You made a change
