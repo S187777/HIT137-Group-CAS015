@@ -258,16 +258,17 @@ print(my_set)
 
 
 ##Encryption Recap:
- The encrypt(text, key) function is a Caesar cipher that shifts each letter by a set number (the key). 
-To decrypt, we reverse this shift.
+ #The encrypt(text, key) function is a Caesar cipher that shifts each letter by a set number (the key). 
+#To decrypt, we reverse this shift.
 
-Additional Info: I found more details about ROT13 and Caesar ciphers on Wikipedia. 
-The explanation there clarified how ROT13 is just a Caesar cipher with a 13-place shift.
+#Additional Info: I found more details about ROT13 and Caesar ciphers on Wikipedia. 
+#The explanation there clarified how ROT13 is just a Caesar cipher with a 13-place shift.
+#Noticed some variables like tybony_inenvoyr, zl_qvpg, noticed how functions and loops are being used
 
 #question 3 appears to use some form of simple encryption (like ROT13)
-The text looks like it uses ROT13 (a 13-place shift), so we suspect the key is 13.
+#The text looks like it uses ROT13 (a 13-place shift), so we suspect the key is 13.
 
-Conclusion: Our hypothesis is that the key for decryption is 13. 🎯 Let's use this to crack the code! 🔓🕵️‍♂️
+#Conclusion: Our hypothesis is that the key for decryption is 13. 🎯 Let's use this to crack the code! 🔓🕵️‍♂️
 
 ## We just need a function that undoes the encryption by shifting each character back using the key value.
 
