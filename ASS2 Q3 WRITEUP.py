@@ -201,10 +201,9 @@ global_variable = 100
 my_dict = {'ke11': 'value1', 'ke12': 'value2', 'ke13': 'value3'}
 numbers = 0
 
-def process_numbers():
-    global global_variable
-    # Why assign this global variable here?
-    local_variable = 5
+def process_numbers(): # requires a argument to be called could be list or set 
+    global global_variable  # Why would you need to assign this global variable here?
+    local_variable = 5 # length of set ??
     numbers = [1, 2, 3, 4, 5]
 
     while local_variable > 0:
