@@ -253,3 +253,133 @@ print(my_dict)
 print(my_set)
 
 #You made a change
+
+###### I'll start here just in case I need to come back to the starting point; I get lost easily here ###########
+
+
+##Encryption Recap:
+ The encrypt(text, key) function is a Caesar cipher that shifts each letter by a set number (the key). 
+To decrypt, we reverse this shift.
+
+Additional Info: I found more details about ROT13 and Caesar ciphers on Wikipedia. 
+The explanation there clarified how ROT13 is just a Caesar cipher with a 13-place shift.
+
+#question 3 appears to use some form of simple encryption (like ROT13)
+The text looks like it uses ROT13 (a 13-place shift), so we suspect the key is 13.
+
+Conclusion: Our hypothesis is that the key for decryption is 13. 🎯 Let's use this to crack the code! 🔓🕵️‍♂️
+
+## We just need a function that undoes the encryption by shifting each character back using the key value.
+
+# Decrypt the code using the key
+key = 13
+decrypted_code = decrypt(encrypted_code, key)
+print("Decrypted Code:")
+print(decrypted_code)
+
+##Fixing the Decrypted Code:
+##Error 1: process_numbers() Function
+
+##Issue: The process_numbers() function doesn’t have parameters, 
+##but it’s called with numbers=my_set. 
+#Fix: Change the function to take a numbers parameter and remove the assignment of the local numbers.
+
+def process_numbers(numbers):
+    global global_variable
+    local_variable = 5
+    # numbers = [1, 2, 3, 4, 5]  # Removed this line as 'numbers' is now a parameter
+
+    while local_variable > 0:
+        if local_variable % 2 == 0:
+            numbers.remove(local_variable)
+        local_variable -= 1
+
+    return numbers
+
+##Error 2: Calling modify_dict() with Arguments
+
+#Issue: modify_dict() is defined without parameters but is called with (5).
+#Correction: Remove the argument 5 from the function call.
+modify_dict()  # Removed argument '5' as the function does not accept any parameters
+
+##Error 3: Modifying Loop Variable Inside for Loop
+#ssue: Inside the for loop, v is incremented with v += 1, which doesn't affect the loop.
+#Correction: Remove v += 1 to prevent confusion.
+
+#Corrected Code:
+for v in range(5):
+    print(v)
+    # v += 1  # Removed this line as it doesn't affect the loop variable in 'range()'
+
+##Error 4: Not Calling update_global() Function
+#Issue: The function update_global() is defined but never called.
+#Correction: Add a call to update_global() to update the global_variable.
+
+#corrected code:
+update_global()  # Added call to update the global variable
+
+##Error 5: Incorrect Condition Check in if Statement
+#Issue: The condition if 5 not in my_dict: is checking for the integer 5 in the dictionary keys, which are strings.
+#Correction: Adjust the condition to check if 'key5' is in my_dict.
+
+if 'key5' not in my_dict:
+    print("Key 'key5' not found in the dictionary!")
+
+#or if we need to check if the value 5 is in the dictionary values:
+if 5 not in my_dict.values():
+    print("Value 5 not found in the dictionary!")
+
+
+##Error 6: Potential Modification of my_set
+#Issue: my_set is modified inside process_numbers(), which might not be intended.
+#Correction: If my_set should remain unchanged, pass a copy of it.
+
+result = process_numbers(numbers=my_set.copy())  # Pass a copy to avoid modifying the original set
+
+##the Corrected and Commented Code
+
+# Decryption function
+def decrypt(text, key):
+    decrypted_text = ""
+    for char in text:
+        if char.isalpha():
+            shifted = ord(char) - key  # Subtract the key to reverse encryption
+            if char.islower():
+                if shifted < ord('a'):
+                    shifted += 26  # Wrap around if below 'a'
+                elif shifted > ord('z'):
+                    shifted -= 26  # Wrap around if above 'z'
+            elif char.isupper():
+                if shifted < ord('A'):
+                    shifted += 26  # Wrap around if below 'A'
+                elif shifted > ord('Z'):
+                    shifted -= 26  # Wrap around if above 'Z'
+            decrypted_text += chr(shifted)
+        else:
+            decrypted_text += char  # Keep non-alphabetic characters unchanged
+    return decrypted_text
+
+# Encrypted code (as provided)
+encrypted_code = '''
+tybony_inenvoyr = 100
+zl_qvpg = {'xrl1': 'inyhr1', 'xrl2': 'inyhr2', 'xrl3': 'inyhr3'}
+
+qrs cbeprff_ahzoref():
+    tybony tybony_inenvoyr
+    ybpny_inenvoyr = 5
+    ahzoref = [1, 2, 3, 4, 5]
+
+    juvyr ybpny_inenvoyr > 0:
+        vs ybpny_inenvoyr % 2 == 0:
+            ahzoref.erzbir(ybpny_inenvoyr)
+        ybpny_inenvoyr -= 1
+
+    erghea ahzoref
+
+zl_frg = {1, 2, 3, 4, 5, 5, 4, 3, 2, 1}
+erfhyg = cbeprff_ahzoref(ahzoref=zl_frg)
+
+qrs zbqvsl_qvpg():
+    ybpny_inenvoyr = 10
+    zl
+
