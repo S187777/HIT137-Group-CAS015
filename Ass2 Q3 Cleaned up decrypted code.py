@@ -46,7 +46,7 @@ def process_numbers(numbers):
         if local_variable % 2 == 0:
             numbers.remove(local_variable)
         local_variable -= 1
-
+    print(numbers)
     return numbers
 
 numbers = [1, 2, 3, 4, 5]
@@ -76,6 +76,7 @@ result = process_numbers(numbers)
 
 numbers = my_set
 result = process_numbers(numbers)
+
 
 """
 def modify_dict():          # A function to add a value (10) to the key 'ke14'.
@@ -108,6 +109,7 @@ def modify_dict():
 
 modify_dict()
 
+
 """
 def update_global():
     global global_variable
@@ -123,6 +125,7 @@ def update_global(value):
     global_variable += value
 
 update_global(10)
+
 """
 Else, If the intent is to just change the global_variable by 10, every time it is called,
 we can simply call it by using:
@@ -142,14 +145,33 @@ for i in range(5):
     i += 1
 
 Discussion:
+If the intent was to just print 0,1,2,3,4,
+Then we could delete i +=1.
 
+Else, if the intent was to print 1,2,3,4,5,
+Then we could move i += 1 to before the print function.
+That would look like this:
 """
-
+for i in range(5):
+    i += 1
+    print(i)
+    
 
 if my_set is not None and my_dict['ke14'] == 10:
     print("Condition met!")
+# my_set is not none, and key ke14 does have value 10, so True.
 
+
+"""
 if 5 not in my_dict:
+    print("5 not found in the dictionary!")
+
+If the intent of this code is determine if key '5' is not in the my_dict dictionary,
+Then the code requires no change.
+Else, if the intent of this code is determine if key or value '5' is not in the my_dict dictionary,
+We could change it to:
+"""
+if 5 not in my_dict and 5 not in my_dict.values():
     print("5 not found in the dictionary!")
 
 print(global_variable)
