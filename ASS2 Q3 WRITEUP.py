@@ -285,17 +285,39 @@ print(decrypted_code)
 ##but it’s called with numbers=my_set. 
 #Fix: Change the function to take a numbers parameter and remove the assignment of the local numbers.
 
-def process_numbers(numbers):
-    global global_variable
-    local_variable = 5
-    # numbers = [1, 2, 3, 4, 5]  # Removed this line as 'numbers' is now a parameter
 
-    while local_variable > 0:
-        if local_variable % 2 == 0:
-            numbers.remove(local_variable)
-        local_variable -= 1
+####################################################################################
 
-    return numbers
+
+#Working out and fixing this part of the code - 
+
+def process_numbers(numbers):      # This def function and the code below is asking to remove all the odd numbers from within the list or set when call for. 
+                            
+    local_variable = 0
+    local_variable += len(numbers) #adding this enables no limit on the lenght
+
+    #local_variable = 5      # this is old code!!!  while loop only "iterates" through the set and then stops.
+    #numbers = [1, 2, 3, 4, 5]       # the set or list to remove even numbers from
+
+    while local_variable > 0:       # Start number is (5)
+
+        if local_variable % 2 == 0:     # seeing if number is even and can be divided by 2
+            numbers.remove(local_variable)      #if the number is even it will remove it from the list.
+
+        local_variable -= 1     # next iteration, start number minus 1, will count-down while loop so not in an infinite loop
+                                # lenght of set to iterate through?
+
+    print(numbers) # no print function was in the old code!! this prints before the return is actioned. 
+
+    return numbers      #  returns the number back to the list after removing even numbers
+
+numbers = {1, 2, 3, 4, 5, 5, 4, 3, 2, 1} #sets can't have double up of numbers 
+
+result = process_numbers(numbers)        #  so this line removes (numbers = ) then shows new results
+
+
+
+#######################################################################################
 
 ##Error 2: Calling modify_dict() with Arguments
 

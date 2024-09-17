@@ -36,5 +36,5 @@ with open('extracted_texts.txt', 'w', encoding='utf-8') as output_file:
         else:
             print(f"Neither 'SHORT-TEXT' nor 'TEXT' column found in {csv_file}")
 
-print("Extraction complete. Check the 'extracted_texts.txt' file.")
+print("Extraction is complete. Please check the 'extracted_texts.txt' file.")
 
