@@ -21,6 +21,7 @@ And store the ‘Top 30’ common words and their counts into a CSV file.
 3.2:
 Using the ‘Auto Tokenizer’ function in the ‘Transformers’ library, 
 write a ‘function’ to count unique tokens in the text (.txt) and give the ‘Top 30’ words.
+
 Task 4: Named-Entity Recognition (NER)
 Extract the ‘diseases’, and ‘drugs’ entities in the ‘.txt file’ separately 
 using ‘en_core_sci_sm’/’en_ner_bc5cdr_md’ and biobert. 
