@@ -29,7 +29,9 @@ The numbers list is a variable local to this function.
 The *.remove() function removes the first occurance of an element in a list.
     Do we need to add a check for multiple numbers in list??
 The *.remove() function will raise a ValueError if the value is not in the list.
-    We need to add an error exception case.
+    Do we need to add an error exception case?
+    If so:
+    expcept 
 The variable local_variable is 5, but is this to ensure the while loop iterates through the whole list?
     If so, then we need to make local_variable = len(list).
 The return function returns a new list with the values removed.
