@@ -114,16 +114,17 @@ modify_dict()
 def update_global():
     global global_variable
     global_variable += 10
-# This funtion appears to call the global variable 'global_variable' assigned at the begining of this decrypted code,
-# Then proceeds to add 10 to the variable.
-# The function is never called, however.
+
+This funtion appears to call the global variable 'global_variable' assigned at the begining of this decrypted code,
+Then proceeds to add 10 to the variable.
+The function is never called, however.
 
 If the intent is to update global_variable with a value, we can add an argument, and call the function.
+
 """
 def update_global(value):
     global global_variable
     global_variable += value
-
 update_global(10)
 
 """
