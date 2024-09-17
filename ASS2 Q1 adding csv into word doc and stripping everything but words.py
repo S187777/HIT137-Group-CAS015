@@ -88,7 +88,7 @@ print(len(complete_list))
 # New dictionary to add key/value of (word/word count).
 count_dict = {}
 
-for x in complete_list:
+for x in complete_list: ### we could write a code to accept words less then 1 letter to capture 'a' not "b" for example. else or if a is found. 
 	if len(x) < 3:
 		pass
 	else:
