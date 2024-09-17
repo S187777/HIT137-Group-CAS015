@@ -3,14 +3,14 @@ import csv
 from collections import Counter
 
 def process_csv_files():
-    Path = os.getcwd()  # Get current working directory
-    filelist = os.listdir(Path)  # List all files in the directory
+    path = os.getcwd()  # Get current working directory  
+    filelist = os.listdir(path)  # List all files in the directory
     word_list = []
 
     # Process each CSV file in the directory
     for i in filelist:
         if i.endswith(".csv"):
-            with open(os.path.join(Path, i), mode='r') as file:
+            with open(os.path.join(path, i), mode='r') as file:
                 csvFile = csv.reader(file)
                 for lines in csvFile:
                     for item in lines:
