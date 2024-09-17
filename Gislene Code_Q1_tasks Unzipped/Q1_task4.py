@@ -35,6 +35,13 @@ for chunk in spacy_text_chunks:
 text_chunks = split_text_into_chunks(text, max_length=512)
 biobert_entities_filtered = []
 
+# Note:
+#  The entities extracted using BioBERT are filtered to only include specific types ('B-DISEASE' and 'B-CHEMICAL').
+#  Modify this list if we need to filter for other entity types.
+#  Using Counter to find the 10 most common entities from both SpaCy and BioBERT.
+#This helps to identify differences in the types of entities each model detects.
+#   Adjust 'most_common(10)' if we want to compare a different number of entities.
+
 # Process each chunk for BioBERT and collect entities
 for chunk_text in text_chunks:
     biobert_entities = biobert_ner_pipeline(chunk_text)
@@ -46,7 +53,7 @@ spacy_common = Counter([ent.label_ for ent in spacy_entities_filtered]).most_com
 # Most common entities in BioBERT
 biobert_common = Counter([ent[1] for ent in biobert_entities_filtered]).most_common(10)
 
-# Step 4: Print the comparison
+# Step 4: Print the comparison of most commom entities
 print("\nSpaCy Most Common Entities:")
 for entity, count in spacy_common:
     print(f"{entity}: {count}")
