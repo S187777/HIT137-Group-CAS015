@@ -18,8 +18,6 @@ def process_numbers():         # Define a function with no argument.
 
     return numbers      # Return output.
 
-
-Discussion notes:
 The intent of this function seems to be to remove any even numbers from a list (or set).
     If so, then the function requires an argument, i.e. a list, or a set.
 The global_variable is assigned global, but not modified in this function.
@@ -63,7 +61,7 @@ my_set = {1, 2, 3, 4, 5, 5, 4, 3, 2, 1}
 """
 result = process_numbers(numbers=my_set)
 
-Discussion notes:
+
 Calling the function above and assigning the returned list to a variable.
 The original function did not require any arguments, but that has changed.
 The argument 'numbers = my_set' indicates the code is intended to iterate through the set.
