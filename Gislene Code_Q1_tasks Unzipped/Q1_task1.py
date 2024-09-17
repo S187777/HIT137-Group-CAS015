@@ -2,9 +2,9 @@ import os
 import pandas as pd
 
 # Define the folder where the CSV files are stored (raw string to handle backslashes)
-folder_path = r'C:\Users\Liany\Desktop\Ass2_HIT137\Code_Q1_tasks'
+folder_path = r'C:\Users\'
 
-# List all CSV files in the folder
+# List all CSV files in the folder 
 csv_files = [f for f in os.listdir(folder_path) if f.endswith('.csv')]
 
 # Open a file to write the extracted text
