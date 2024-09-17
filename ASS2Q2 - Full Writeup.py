@@ -1,16 +1,4 @@
 """
-So everyone is aware, and we are sure to not make any mistakes;
-
-I went through the code provided by everyone and I noticed some anomalies.
-
-Some of the code is hauntingly familiar with the output from 
-a GenAI, and stack overflow, which is Okay, but requires further checking.
-Even if it is our unique code, it is too close for comfort.
-
-Please Please Please Give me any feedback you have.
-"""
-
-"""
 Question 2
 Here's an adventurous story intertwined with Python programming questions that involve 
 nested 'for' loops, conditional statements, string manipulations, and more.
@@ -28,6 +16,7 @@ by adding the original pixel values (r,g,b) with the generated number (Example: 
 Generate a new image with the converted pixels (upload it as 'chapter1out.png').
 Finally, add all the red (r) pixel values in the new_image and provide the sum as output to move to the next chapter.
 """
+
 
 # Part 1: The above Algorithm (unchanged).
 
@@ -84,6 +73,7 @@ print(f"The total sum of red pixel values in the new image is:\n {total_red_pixe
 
 img.show()      # Shows the new output image.
 
+
 """
 Chapter 2: The Chamber of Strings
 Pt1.
@@ -132,7 +122,8 @@ def separate_string(string):        # Define a function to accomodate various st
 				else:
 					letter_list.append(y)
 			elif y.isdigit():			# If that character is a number.
-				z=int(y)
+				z=int(y)			# We need to do this because y is a string, and if y.isdigit() = true, then it still may call an exception.
+                        			# i.e. y=2^2 is a digit, but not an integer (4 is an integer).
 				if z % 2 == 0:
 					even_numbers_ord.append(ord(y))			# Convert even numbers.
 					even_numbers.append(y)
