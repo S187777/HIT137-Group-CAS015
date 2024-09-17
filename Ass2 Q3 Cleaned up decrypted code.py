@@ -167,11 +167,13 @@ if 5 not in my_dict:
     print("5 not found in the dictionary!")
 
 If the intent of this code is determine if key '5' is not in the my_dict dictionary,
-Then the code requires no change.
+Then the code requires no change, except to add quotation marks to 5, i.e. '5' 
+This then checks for the string '5', not an integer.
+
 Else, if the intent of this code is determine if key or value '5' is not in the my_dict dictionary,
 We could change it to:
 """
-if 5 not in my_dict and 5 not in my_dict.values():
+if '5' not in my_dict and '5' not in my_dict.values():
     print("5 not found in the dictionary!")
 
 print(global_variable)
