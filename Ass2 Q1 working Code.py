@@ -70,10 +70,11 @@ except FileNotFoundError:
     print("Error: A file you tried to open is not found.")
 
 english_words = []
+extracted_list = extracted_text.split()
 
-for cleaned_data in text_list:
+for cleaned_data in extracted_list:
     if cleaned_data.lower() in valid_words:
         english_words.append(cleaned_data)
 
-    with open('Ass2Q1Pt1-Extracted_Text.txt', 'w') as extracted_data:
-        for extracted_data in csv_data: 
+# This takes all the cleaned data string, adds it to a list after splitting.
+# This then compares the string portions with the set of english words.
