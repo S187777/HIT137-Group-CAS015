@@ -42,7 +42,8 @@ except FileNotFoundError:
 
 cleaned_text = re.sub(r'[^\w\s]', '', csv_data)     # The Regular Expression Module .sub() replaces a matching string with an output.
                                                     # In this case, we want any punctuation to be replaced with ''.
-text_list = cleaned_text.split()
+lower_cleaned_text = cleaned_text.lower()
+text_list = lower_cleaned_text.split()
 
 with open('Ass2Q1Pt1-Extracted_Text.txt', 'w') as text_file:
     text_file.write(' '.join(text_list))
@@ -85,3 +86,34 @@ text_file.close()
 
 # This writes the list of words from the CSV files into a text document.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Using Tokeniser to count the 30 most common tokens.
+
+the_tokenizer = AutoTokenizer.from_pretrained("bert-base-cased")        
+                    # We can use cased BERT here, as we have changed the strings to lower-case previously.
+
+list_tokens = the_tokenizer.tokenize(' '.join(text_list))
+
+most_common_tokens = Counter(list_tokens).most_common(30)
+
+with open('Ass2Q1Pt2-Tokens-30_Most_common.csv', 'w') as f:
+    writer = csv.writer(f)
+    writer.writerow(['Tokens', 'Number of Occurances'])
+    for token, count in most_common_tokens:
+        writer.writerow([token, count])
+
+print(dict(most_common_tokens))
