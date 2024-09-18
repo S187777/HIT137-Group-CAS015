@@ -105,4 +105,54 @@ with open('Ass2Q1Pt2-Tokens-30_Most_Common.csv', 'w') as f:
 
 print(most_common_tokens)
 
+# Using models to extract the 'diseases' and 'drugs'.
+# First we tokenise the text.
+######################
+"""
+bert_tokenizer = AutoTokenizer.from_pretrained("dmis-lab/biobert-base-cased-v1.1")        
 
+bert_tokens = bert_tokenizer.tokenize(' '.join(english_words))
+
+def get_entities_spacy(text, model):
+    doc = model(text)
+    entities = []
+    for ent in doc.ents:
+        entities.append((ent.text, ent.label_))
+    return entities
+
+def get_entities_biobert(text):
+    results = nlp_biobert(text)
+    entities = []
+    for result in results:
+        entities.append((result['word'], result['entity']))
+    return entities
+
+def count_entity_frequencies(entities):
+    counts = {}
+    for entity in entities:
+        type = entity[1]
+        if type in counts:
+            counts[type] = counts[type] + 1
+        else:
+            counts[type] = 1
+    return counts
+
+nlp_scispacy = spacy.load("en_core_sci_sm")
+nlp_ner_bc5cdr = spacy.load("en_ner_bc5cdr_md")
+nlp_biobert = pipeline("ner", model="dmis-lab/biobert-v1.1", tokenizer="dmis-lab/biobert-v1.1")
+
+text_data = bert_tokens
+
+entities_scispacy = get_entities_spacy(text_data, nlp_scispacy)
+entities_ner_bc5cdr = get_entities_spacy(text_data, nlp_ner_bc5cdr)
+entities_biobert = get_entities_biobert(text_data)
+
+print("Entities from SpaCy en_core_sci_sm:")
+print(count_entity_frequencies(entities_scispacy))
+ 
+print("\nEntities from SpaCy en_ner_bc5cdr:")
+print(count_entity_frequencies(entities_ner_bc5cdr))
+ 
+print("\nEntities from BioBERT:")
+print(count_entity_frequencies(entities_biobert))
+"""
