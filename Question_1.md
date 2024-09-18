@@ -62,9 +62,72 @@ for file in folder:
 
 
 ## Just a note here I've mentioned about doing logging but haven’t shown how.>>>>Back here later tp finish it
-import logging
-logging.basicConfig(filename='process.log', level=logging.INFO)
 
-# Inside the loop, log the processed files
-logging.info(f"Processed file: {file}")
 
+
+
+
+QUESTION 1.4!!!!!!!
+
+ 
+
+
+def read_text(file_path):
+
+    file = open(file_path, 'r')
+
+    text = file.read()
+
+    file.close()
+
+    return text
+ 
+
+
+def get_entities_spacy(text, model):
+
+    doc = model(text)
+
+    entities = []
+
+    for ent in doc.ents:
+
+        entities.append((ent.text, ent.label_))
+
+    return entities
+ 
+
+
+def get_entities_biobert(text):
+
+    results = nlp_biobert(text)
+
+    entities = []
+
+    for result in results:
+
+        entities.append((result['word'], result['entity']))
+
+    return entities
+ 
+
+
+def count_entity_frequencies(entities):
+
+    counts = {}
+
+    for entity in entities:
+
+        type = entity[1]
+
+        if type in counts:
+
+            counts[type] = counts[type] + 1
+
+        else:
+
+            counts[type] = 1
+
+    return counts
+
+ 
