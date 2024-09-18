@@ -30,7 +30,7 @@ try:
                                     # If required, insert the filepath here.
         if file.endswith('.csv'):
             dataframe = panda.read_csv(file)
-            column = dataframe['large_text_column']  # Column Names
+            column = dataframe['TEXT', 'entites','SHORT-TEXT']  # Column Names from CSV1, CSV2, CSV3, and CSV4.
             for data in column.tolist():
                 csv_data += ' ' + data
 
@@ -84,3 +84,4 @@ with open('Ass2Q1Pt1-Extracted_Words.txt', 'w') as text_file:
 text_file.close()
 
 # This writes the list of words from the CSV files into a text document.
+
