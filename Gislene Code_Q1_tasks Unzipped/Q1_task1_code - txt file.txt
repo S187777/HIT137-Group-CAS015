@@ -1,0 +1,81 @@
+
+Question 1 
+This question consists of multiple CSV files (In the Zipped Folder) with 'large texts' in one of the columns in each file. Your job is to use the open-source NLP (Natural Language Processing) libraries and perform various tasks. 
+
+Task 1: 
+Extract the 'text' in all the CSV files and store them into a single '.txt file'.
+
+First: How to write data from a CSV file to a text file using Python?
+
+CSV File: Is a file where data is stored in a table format, where each value is separated by a comma  
+
+
+ (e.g., "name, age, city").
+
+
+Text File: A simple file that can contain any text.
+
+Ok, Let's Walk Through This with Simple Steps and Explanations
+1. What we want to do
+Imagine you have a file called input_file.csv that looks like this:
+
+name, age, city
+John,25, New York
+Alice,30, Sydney
+Bob,22, Melbourne
+
+
+We want to take this file and copy its contents into another file, called output_file.txt.
+2. Explaining the Steps in Plain Language
+Here's what we will do using the most straightforward words:
+1. Open the "input" file (the CSV file) to read it.
+2. Open the "output" file (the text file) to write into it.
+3. Copy each line from the CSV file and paste it into the text file.
+4. Save and close both files.
+This is what the code looks like, with comments that explain each line in simple terms:
+
+Simplifying the Code Explanation
+* open('input_file.csv', 'r'): Think of this as opening a book to read.
+* open('output_file.txt', 'w'): This is like opening a notebook to write something new.
+* for line in csv_file:: This is like turning each page in the book one by one.
+* text_file.write(line): It's like copying what you read on each page and writing it in your notebook.
+Closing the Files: Always "close the book" when you're done. This saves everything you've written.
+
+Before Running the Code
+1. Save this code: Copy the code into a simple text editor (like Notepad) and save it with the name copy_csv.py.
+2. Make sure that your CSV file (input_file.csv) is in the same folder as the Python script (copy_csv.py).
+Run the Code: In the terminal, go to the folder where your script is saved and type:                                             python copy_csv.py
+
+After running, you should find an output_file.txt with the same content as the CSV file.
+Even Simpler Words
+This code is like copying a list from one notebook (CSV) to another notebook (text file) line by line. You open both notebooks, copy each line, and then close them. That's it!
+Does this explanation help clarify things? We can walk through it again if needed! ??
+
+
+Another example:
+
+ This is the code:  csv_file = open ( 'input_file.csv', 'r') 
+
+You can absolutely change the name of the file to whatever you like! The name inside the open() function should match the name of your actual file.
+So, if your file is named Rhemessa_file.csv or input_Rhemessa.csv, you can modify the code like this:
+
+# Step 1: Open the CSV file so we can read its content
+csv_file = open('Rhemessa_file.csv', 'r')  # 'r' means we're opening it to read
+
+OR
+
+# Step 1: Open the CSV file so we can read its content
+csv_file = open('input_Rhemessa.csv', 'r')  # 'r' means we're opening it to read
+
+Just make sure that the file name you use in the code is exactly the same as the file you have on your computer, including the .csv part.
+
+
+
+
+
+
+
+
+
+
+
