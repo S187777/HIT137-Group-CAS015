@@ -1,0 +1,4 @@
+Entities detected by en_ner_bc5cdr_md model:
+Entity: Aspirin, Label: CHEMICAL
+Entity: pain, Label: DISEASE
+Entity: hypertension, Label: DISEASE
