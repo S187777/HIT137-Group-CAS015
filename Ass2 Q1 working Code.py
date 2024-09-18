@@ -78,3 +78,9 @@ for cleaned_data in extracted_list:
 
 # This takes all the cleaned data string, adds it to a list after splitting.
 # This then compares the string portions with the set of english words.
+
+with open('Ass2Q1Pt1-Extracted_Words.txt', 'w') as text_file:
+    text_file.write(' '.join(english_words))
+text_file.close()
+
+# This writes the list of words from the CSV files into a text document.
