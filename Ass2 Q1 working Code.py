@@ -30,7 +30,7 @@ try:
                                     # If required, insert the filepath here.
         if file.endswith('.csv'):
             dataframe = panda.read_csv(file)
-            column = dataframe['large_text_column']  # Change to Column Names
+            column = dataframe['TEXT','entites','SHORT-TEXT']  # Column Names in CSV files.
             for data in column.tolist():
                 csv_data += ' ' + data
 
@@ -50,7 +50,6 @@ text_file.close()
 
 # This just takes the data in the columns described, and puts it in a text file.
 
-
 # To check if the text is a word:
 
 try:
@@ -59,13 +58,7 @@ try:
     
     if not os.path.isfile('words.txt'):
         raise FileNotFoundError("Error: words.txt file not found")
-    
-    with open('Ass2Q1Pt1-Extracted_Text.txt', 'r') as text_file:
-        extracted_text = text_file.read()
-
-    if not os.path.isfile('Ass2Q1Pt1-Extracted_Text.txt'):
-       raise FileNotFoundError("Error: Ass2Q1Pt1-Extracted_Text.txt file not found")
-    
+   
 except FileNotFoundError:
     print("Error: A file you tried to open is not found.")
 
@@ -75,52 +68,41 @@ for cleaned_data in text_list:
     if cleaned_data.lower() in valid_words:
         english_words.append(cleaned_data)
 
-with open('Ass2Q1Pt1-Extracted_Text.txt', 'w') as extracted_data:
-    for extracted_data in csv_data: 
+with open('Ass2Q1Pt1-Extracted_Words_Text.txt', 'w') as extracted_data:
+    extracted_data.write(' '.join(english_words))
 
-# Here we start Part 2, counting the most common words. 
-most_common_words = Counter(english_words).most_common(30) #Counting the top 30 words
 
-with open('Top_30_Common_Words.csv', 'w') as csvfile:  # Open a new CSV file 
+# Here we start Part 2, counting the most common words.
+
+# Using Counter to count the 30 most common words. 
+
+most_common_words = Counter(english_words).most_common(30) # Counting the top 30 words
+
+with open('Ass2Q1Pt2-Counter-30-Most-Common.csv', 'w') as csvfile:  # Open a new CSV file 
 
     writer = csv.writer(csvfile)  
     writer.writerow(['Word', 'Count'])  # Write a new header title with 'WORD' and 'COUNT'
     
-    for word, count in most_common_words:  # Loop through the list
-        writer.writerow([word, count])  # Write the word and its count to the CSV file
+for word, count in most_common_words:  # Loop through the list
+    writer.writerow([word, count])  # Write the word and its count to the CSV file
 
-
-for word, count in most_common_words:  #  Print the 30 most common words
-    print(word, count)  # Print the words and its count to the screen
-
-############################################################
-
-
-
-
-
-
-
-
-
-
-
-
+print(most_common_words)  # Print the words and its count to the screen
 
 
 # Using Tokeniser to count the 30 most common tokens.
 
-the_tokenizer = AutoTokenizer.from_pretrained("bert-base-cased")        
-                    # We can use cased BERT here, as we have changed the strings to lower-case previously.
+the_tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")        
 
 list_tokens = the_tokenizer.tokenize(' '.join(text_list))
 
 most_common_tokens = Counter(list_tokens).most_common(30)
 
-with open('Ass2Q1Pt2-Tokens-30_Most_common.csv', 'w') as f:
+with open('Ass2Q1Pt2-Tokens-30_Most_Common.csv', 'w') as f:
     writer = csv.writer(f)
     writer.writerow(['Tokens', 'Number of Occurances'])
     for token, count in most_common_tokens:
         writer.writerow([token, count])
 
-print(dict(most_common_tokens))
+print(most_common_tokens)
+
+
