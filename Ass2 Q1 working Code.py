@@ -30,7 +30,7 @@ try:
                                     # If required, insert the filepath here.
         if file.endswith('.csv'):
             dataframe = panda.read_csv(file)
-            column = dataframe['TEXT', 'entites','SHORT-TEXT']  # Column Names from CSV1, CSV2, CSV3, and CSV4.
+            column = dataframe['large_text_column']  # Change to Column Names
             for data in column.tolist():
                 csv_data += ' ' + data
 
@@ -38,7 +38,7 @@ try:
         raise FileNotFoundError
 
 except FileNotFoundError:
-    print("Error: No *.csv files are found in this directory.\n Please check the filepath.")
+    print("Error: No *.csv files are found in this directory.\n Please check the filepath again.")
 
 cleaned_text = re.sub(r'[^\w\s]', '', csv_data)     # The Regular Expression Module .sub() replaces a matching string with an output.
                                                     # In this case, we want any punctuation to be replaced with ''.
@@ -54,7 +54,7 @@ text_file.close()
 # To check if the text is a word:
 
 try:
-    with open('words.txt', 'r') as English:     # Here we use the file from GitHub to check if English words.
+    with open('words.txt', 'r') as English:     # Here we use the file from GitHub to check if English words. this list has a comparable list to compare our list to a global source. 
         valid_words = set(English.read().split())       # By creating a set, the check takes less time?? Forum consensus.
     
     if not os.path.isfile('words.txt'):
@@ -70,18 +70,31 @@ except FileNotFoundError:
     print("Error: A file you tried to open is not found.")
 
 english_words = []
-extracted_list = extracted_text.split()
 
-for cleaned_data in extracted_list:
+for cleaned_data in text_list:
     if cleaned_data.lower() in valid_words:
         english_words.append(cleaned_data)
 
-# This takes all the cleaned data string, adds it to a list after splitting.
-# This then compares the string portions with the set of english words.
+    with open('Ass2Q1Pt1-Extracted_Text.txt', 'w') as extracted_data:
+        for extracted_data in csv_data: 
 
-with open('Ass2Q1Pt1-Extracted_Words.txt', 'w') as text_file:
-    text_file.write(' '.join(english_words))
-text_file.close()
 
-# This writes the list of words from the CSV files into a text document.
+###################################################################
 
+
+word_counter = Counter(english_words) #Counting the top 30 words
+most_common_words = word_counter.most_common(30)
+
+with open('Top_30_Common_Words.csv', 'w') as csvfile:  # Open a new CSV file 
+
+    writer = csv.writer(csvfile)  
+    writer.writerow(['Word', 'Count'])  # Write a new header title with 'WORD' and 'COUNT'
+    
+    for word, count in most_common_words:  # Loop through the list
+        writer.writerow([word, count])  # Write the word and its count to the CSV file
+
+
+for word, count in most_common_words:  #  Print the 30 most common words
+    print(word, count)  # Print the words and its count to the screen
+
+############################################################
