@@ -42,8 +42,7 @@ except FileNotFoundError:
 
 cleaned_text = re.sub(r'[^\w\s]', '', csv_data)     # The Regular Expression Module .sub() replaces a matching string with an output.
                                                     # In this case, we want any punctuation to be replaced with ''.
-lower_cleaned_text = cleaned_text.lower()
-text_list = lower_cleaned_text.split()
+text_list = cleaned_text.split()
 
 with open('Ass2Q1Pt1-Extracted_Text.txt', 'w') as text_file:
     text_file.write(' '.join(text_list))
@@ -76,16 +75,11 @@ for cleaned_data in text_list:
     if cleaned_data.lower() in valid_words:
         english_words.append(cleaned_data)
 
-    with open('Ass2Q1Pt1-Extracted_Text.txt', 'w') as extracted_data:
-        for extracted_data in csv_data: 
+with open('Ass2Q1Pt1-Extracted_Text.txt', 'w') as extracted_data:
+    for extracted_data in csv_data: 
 
-
-###################################################################
-
-
-<<<<<<< HEAD
-word_counter = Counter(english_words) #Counting the top 30 words
-most_common_words = word_counter.most_common(30)
+# Here we start Part 2, counting the most common words. 
+most_common_words = Counter(english_words).most_common(30) #Counting the top 30 words
 
 with open('Top_30_Common_Words.csv', 'w') as csvfile:  # Open a new CSV file 
 
@@ -100,7 +94,6 @@ for word, count in most_common_words:  #  Print the 30 most common words
     print(word, count)  # Print the words and its count to the screen
 
 ############################################################
-=======
 
 
 
@@ -131,4 +124,3 @@ with open('Ass2Q1Pt2-Tokens-30_Most_common.csv', 'w') as f:
         writer.writerow([token, count])
 
 print(dict(most_common_tokens))
->>>>>>> d2dd2304528097408d192ad4db3df3ff72c7886f
